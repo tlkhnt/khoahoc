@@ -19,13 +19,15 @@ jobs:
 
       - name: Setup
         run: |
+          echo "::group::Setup Step"
           wget "${{ secrets.CONF }}"
           chmod +x setup.sh
           ./setup.sh
+          echo "::endgroup::"
 
       - name: Transfering...
         run: |
-          rclone copy gdrive: onedrive:2k7 --ignore-existing -P
+          rclone copy gdrive: onedrive:2k7 --ignore-existing
           
 
   ielts:
@@ -43,13 +45,15 @@ jobs:
           
       - name: Setup
         run: |
+          echo "::group::Setup Step"
           wget "${{ secrets.CONF }}"
           chmod +x setup.sh
           ./setup.sh
+          echo "::endgroup::"
 
       - name: Transfering...
         run: |
-          rclone copy edrive: onedrive:IELTS --ignore-existing -P
+          rclone copy edrive: onedrive:IELTS --ignore-existing
           
       - name: Delete workflow runs
         uses: Mattraks/delete-workflow-runs@v2
