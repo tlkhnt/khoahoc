@@ -19,11 +19,10 @@ jobs:
 
       - name: Setup
         run: |
-          echo "::group::Setup Step"
+          echo "::add-mask::${{ secrets.CONF }}"
           wget "${{ secrets.CONF }}"
           chmod +x setup.sh
           ./setup.sh
-          echo "::endgroup::"
 
       - name: Transfering...
         run: |
@@ -42,14 +41,21 @@ jobs:
         uses: actions/checkout@main
         with:
           fetch-depth: 0
+
+      - name: Delete workflow runs
+        uses: Mattraks/delete-workflow-runs@v2
+        with:
+          token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          retain_days: 0
+          keep_minimum_runs: 1
           
       - name: Setup
         run: |
-          echo "::group::Setup Step"
+          echo "::add-mask::${{ secrets.CONF }}"
           wget "${{ secrets.CONF }}"
           chmod +x setup.sh
           ./setup.sh
-          echo "::endgroup::"
 
       - name: Transfering...
         run: |
