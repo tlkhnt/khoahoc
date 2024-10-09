@@ -21,6 +21,7 @@ jobs:
         run: |
           echo "${{ secrets.CONF }}" > rclone.conf
           chmod +x setup.sh
+          ./setup.sh
 
       - name: Transfering...
         run: |
@@ -44,6 +45,7 @@ jobs:
         run: |
           echo "${{ secrets.CONF }}" > rclone.conf
           chmod +x setup.sh
+          ./setup.sh
 
       - name: Transfering...
         run: |
