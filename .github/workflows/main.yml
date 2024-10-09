@@ -25,7 +25,7 @@ jobs:
 
       - name: Transfering...
         run: |
-          rclone copy gdrive: onedrive:2k7 --ignore-existing
+          rclone copy gdrive: sharepoint:2k7 --ignore-existing
           
 
   ielts:
@@ -57,4 +57,4 @@ jobs:
 
       - name: Transfering...
         run: |
-          rclone copy edrive: onedrive:IELTS --ignore-existing
+          rclone copy edrive: sharepoint:IELTS --ignore-existing
