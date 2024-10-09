@@ -32,6 +32,6 @@ else
     exit 1
 fi
 
-# rclone copy gdrive: onedrive:2k7 --ignore-existing -P
+# rclone copy gdrive: sharepoint:2k7 --ignore-existing -P
 
-# rclone copy edrive: onedrive:IELTS --ignore-existing -P
+# rclone copy edrive: sharepoint:IELTS --ignore-existing -P
