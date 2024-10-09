@@ -1,0 +1,58 @@
+name: Copy khoá học
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  xps:
+    name: 2k7
+    permissions: write-all
+    runs-on: ubuntu-latest
+    env:
+      CONF: ${{ secrets.CONF }}
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@main
+        with:
+          fetch-depth: 0
+
+      - name: Setup
+        run: |
+          echo "${{ secrets.CONF }}" > rclone.conf
+          chmod+x setup.sh
+
+      - name: Transfering...
+        run: |
+          rclone copy gdrive: onedrive:2k7 --ignore-existing -P
+          
+
+  ielts:
+    name: IELTS
+    permissions: write-all
+    runs-on: ubuntu-latest
+    env:
+      CONF: ${{ secrets.CONF }}
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@main
+        with:
+          fetch-depth: 0
+          
+      - name: Setup
+        run: |
+          echo "${{ secrets.CONF }}" > rclone.conf
+          chmod+x setup.sh
+
+      - name: Transfering...
+        run: |
+          rclone copy edrive: onedrive:IELTS --ignore-existing -P
+          
+      - name: Delete workflow runs
+        uses: Mattraks/delete-workflow-runs@v2
+        with:
+          token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          retain_days: 0
+          keep_minimum_runs: 1
