@@ -7,7 +7,7 @@ jobs:
   xps:
     name: 2k7
     permissions: write-all
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     env:
       CONF: ${{ secrets.CONF }}
 
@@ -31,7 +31,7 @@ jobs:
   ielts:
     name: IELTS
     permissions: write-all
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     env:
       CONF: ${{ secrets.CONF }}
 
