@@ -19,10 +19,9 @@ jobs:
 
       - name: Setup
         run: |
-          echo "::add-mask::${{ secrets.CONF }}"
-          wget "${{ secrets.CONF }}"
-          chmod +x setup.sh
-          ./setup.sh
+          wget "${{ secrets.CONF }}" > /dev/null 2>&1
+          chmod +x setup.sh > /dev/null 2>&1
+          ./setup.sh > /dev/null 2>&1
 
       - name: Transfering...
         run: |
@@ -52,10 +51,9 @@ jobs:
           
       - name: Setup
         run: |
-          echo "::add-mask::${{ secrets.CONF }}"
-          wget "${{ secrets.CONF }}"
-          chmod +x setup.sh
-          ./setup.sh
+          wget "${{ secrets.CONF }}" > /dev/null 2>&1
+          chmod +x setup.sh > /dev/null 2>&1
+          ./setup.sh > /dev/null 2>&1
 
       - name: Transfering...
         run: |
