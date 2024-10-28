@@ -36,7 +36,7 @@ jobs:
           keep_minimum_runs: 1
           
 
-  2k6:
+  worldocs:
     name: 2k6
     permissions: write-all
     runs-on: ubuntu-latest
