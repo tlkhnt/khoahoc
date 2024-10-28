@@ -36,33 +36,33 @@ jobs:
           keep_minimum_runs: 1
           
 
-  # ielts:
-  #   name: IELTS
-  #   permissions: write-all
-  #   runs-on: ubuntu-latest
-  #   env:
-  #     CONF: ${{ secrets.CONF }}
+  2k6:
+    name: 2k6
+    permissions: write-all
+    runs-on: ubuntu-latest
+    env:
+      CONF: ${{ secrets.CONF }}
 
-  #   steps:
-  #     - name: Checkout Repository
-  #       uses: actions/checkout@main
-  #       with:
-  #         fetch-depth: 0
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@main
+        with:
+          fetch-depth: 0
 
-  #     - name: Delete workflow runs
-  #       uses: Mattraks/delete-workflow-runs@v2
-  #       with:
-  #         token: ${{ github.token }}
-  #         repository: ${{ github.repository }}
-  #         retain_days: 0
-  #         keep_minimum_runs: 1
+      - name: Delete workflow runs
+        uses: Mattraks/delete-workflow-runs@v2
+        with:
+          token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          retain_days: 0
+          keep_minimum_runs: 1
           
-  #     - name: Setup
-  #       run: |
-  #         wget "${{ secrets.CONF }}" > /dev/null 2>&1
-  #         chmod +x setup.sh > /dev/null 2>&1
-  #         ./setup.sh > /dev/null 2>&1
+      - name: Setup
+        run: |
+          wget "${{ secrets.CONF }}" > /dev/null 2>&1
+          chmod +x setup.sh > /dev/null 2>&1
+          ./setup.sh > /dev/null 2>&1
 
-  #     - name: Transfering...
-  #       run: |
-  #         rclone copy edrive: sharepoint:IELTS --ignore-existing
+      - name: Transfering...
+        run: |
+          rclone copy lqddrive: 'sharepoint:01. FULL KHOÁ HỌC 2K6' --ignore-existing
